@@ -1,26 +1,27 @@
+# DTA time
+We further investigate the taint-analysis time in our fuzzing campaign as presented in the following figure, where it ranges from 1745 to 33589 seconds averagely during 24-hour runs. Notably, even though it costs 33589 seconds for taint analysis on project \codeIn{strip},  *MirageFuzz* still achieves the best edge coverage (i.e., covering 9417 edges) averagely in 24-hour run. 
+
+![DTA Time](figures/taint-time.png)
+# Unique Edges
+Due to the large scale of our evaluation, involving 18 benchmarks and 10 fuzzers, 
+it is hard to present the unique edges of each (fuzzer, benchmark) pair in a single Wayne diagram.
+
+Therefore, we present the total unique edges of each fuzzer in the following table.
+| Fuzzer | Unique Edges |
+| :---: | :---: |
+| $\text{MirageFuzz}$ | 4268 |
+| $\text{AFL}$ | 7 |
+| $\text{AFL++}$ | 277 |
+| $\text{MOpt}$ | 299 |
+| $\text{FairFuzz}$ | 22 |
+| $\text{QSYM}$ | 1608 |
+| $\text{Laf}$-Intel | 54 |
+| $\text{Angora}$ | 2632 |
+| $\text{MEUZZ}$ | 342 |
+| $\text{Havoc}_\text{MAB}$ | 784 |  
+
 # Benchmarks
-Note that the following given commit ID represents the commits on which we did the edge coverage experiment, **not necessarily the commits on which we found the bugs**.
-
-Hint: it's recommended to build benchmarks without shared library.
-
-- [jhead](https://github.com/Matthias-Wandel/jhead): commit [0e98605](https://github.com/Matthias-Wandel/jhead/commit/0e98605d0a08bc692b87ca878bb4dc7bdfc12471)
-    - jhead: `jhead @@`
-- [libpng](https://github.com/glennrp/libpng): commit [a37d483](https://github.com/glennrp/libpng/commit/a37d4836519517bdce6cb9d956092321eca3e73b)
-    - pngfix: `pngfix @@`
-- [libming](https://github.com/libming/libming): commit [04aee52](https://github.com/libming/libming/commit/04aee52363688426eab74f5d6180c149654a6473)
-    - swftocxx: `swftocxx @@`
-    - listaction_d: `listaction_d @@`
-- [pcre2](https://github.com/PCRE2Project/pcre2): commit [3a1ad4](https://github.com/PCRE2Project/pcre2/commit/3a1ad41eca43ffcc310da753b5c7d1844719581f)
-    - pcre2test: `pcre2test @@`
-- [file](https://github.com/file/file): commit [506b09](https://github.com/file/file/commit/506b09cd4dd6fa705b4295c3063481485ecfda11)
-- [binutils-gdb](https://github.com/bminor/binutils-gdb): release version [2_38](https://github.com/bminor/binutils-gdb/releases/tag/binutils-2_38) 
-    - objcopy: `objcopy @@ tmp`
-    - objdump: `objdump -D @@`
-    - nm: `nm-new -C @@`
-    - readelf: `readelf -a @@`
-    - size: `size @@`
-    - strip: `strip-new -o tmp @@`
-
+The statistics of benchmarks is listed in our paper.
 
 # Bugs found by *MirageFuzz* and corresponding calling stack or analysis
 
